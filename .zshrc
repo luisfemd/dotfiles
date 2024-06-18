@@ -109,3 +109,5 @@ export WMS="$HOME/Develop/Pulpo/wms-apps/"
 alias wms-backend="cd $WMS/wms-backend"
 alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-apps="cd $WMS"
+alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
+ 

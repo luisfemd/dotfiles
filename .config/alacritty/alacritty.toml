@@ -12,3 +12,6 @@ size = 8
   [font.italic]
   family = "Fira Code"
   style = "Italic"
+
+[shell]
+program = "tmux"

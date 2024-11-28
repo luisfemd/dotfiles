@@ -24,5 +24,8 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 
+-- keymaps
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+vim.keymap.set('n', 'SSA', ':wa<CR>:mksession! ~/.local/share/nvim/sessions/')
+vim.keymap.set('n', 'SO', ':wa<CR>:so ~/.local/share/nvim/sessions/')
 

@@ -106,10 +106,11 @@ path+=('$HOME/Develop/Me/miajiloj')
 export PATH
 export WMS="$HOME/Develop/Pulpo/wms-apps/"
 
+alias wms-apps="cd $WMS"
 alias wms-backend="cd $WMS/wms-backend"
 alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-frontend="cd $WMS/wms-frontend"
-alias wms-apps="cd $WMS"
+alias wms-settings="cd $WMS/wms-settings"
 alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"
  
@@ -117,3 +118,4 @@ alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(gh copilot alias -- zsh)"

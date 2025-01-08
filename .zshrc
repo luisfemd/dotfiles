@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 path+=('$HOME/Develop/Me/miajiloj')
 export PATH
 export WMS="$HOME/Develop/Pulpo/wms-apps/"
-alias wms-backend="cd $WMS/wms-backend"                       alias wms-integrator="cd $WMS/wms-integrator"
+alias wms-backend="cd $WMS/wms-backend"
+alias wms-integrator="cd $WMS/wms-integrator"
+alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-apps="cd $WMS"
 alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"

@@ -108,5 +108,12 @@ require("lazy").setup({
     },
     -- See Commands section for default commands if you want to lazy load on them
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  }
 })
 

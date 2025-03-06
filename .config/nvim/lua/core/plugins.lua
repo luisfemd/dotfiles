@@ -1,7 +1,7 @@
 require("lazy").setup({
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
-  "ellisonleao/gruvbox.nvim",
+  -- "ellisonleao/gruvbox.nvim",
   "nvim-lualine/lualine.nvim",
   "vim-test/vim-test",
   "kassio/neoterm",
@@ -114,6 +114,20 @@ require("lazy").setup({
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-  }
+  },
+-- ,{
+-- "karb94/neoscroll.nvim",
+-- opts = {},
+-- }
+{
+    "tiagovla/tokyodark.nvim",
+    opts = {
+        -- custom options here
+    },
+    config = function(_, opts)
+        require("tokyodark").setup(opts) -- calling setup is optional
+        vim.cmd [[colorscheme tokyodark]]
+    end
+}
 })
 

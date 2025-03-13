@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 path+=('$HOME/Develop/Me/miajiloj')
+path+=('$ASDF_DATA_DIR/shims')
 export PATH
 export WMS="$HOME/Develop/Pulpo/wms-apps/"
 

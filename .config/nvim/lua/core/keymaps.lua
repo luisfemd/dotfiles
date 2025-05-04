@@ -16,6 +16,7 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.wrap = false
 
 
 vim.cmd [[ set noswapfile ]]

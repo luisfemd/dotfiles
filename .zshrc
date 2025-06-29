@@ -112,6 +112,8 @@ alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-settings="cd $WMS/wms-settings"
 alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
+export OPENAI_API_KEY=$(cat ~/.openai-token)
+export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"
  
 
@@ -119,3 +121,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(gh copilot alias -- zsh)"
+
+alias jenkins='java -jar /opt/jenkins-cli/jenkins-cli.jar -s http://ci.pulpo.co:8080 -auth $(cat ~/.jenkins-token)'
+

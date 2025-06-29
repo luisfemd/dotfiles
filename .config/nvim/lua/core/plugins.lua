@@ -84,73 +84,73 @@ require("lazy").setup({
 			})
 		end,
 	},
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    cmd = "CopilotChat",
-    opts = function()
-      local user = vim.env.USER or "User"
-      user = user:sub(1, 1):upper() .. user:sub(2)
-      return {
-        model = "gpt-4-0125-preview",
-        auto_insert_mode = true,
-        show_help = true,
-        question_header = "  " .. user .. " ",
-        answer_header = "  Copilot ",
-        window = {
-          width = 0.4,
-        },
-        selection = function(source)
-          local select = require("CopilotChat.select")
-          return select.visual(source) or select.buffer(source)
-        end,
-      }
-    end,
-    keys = {
-      { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
-      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
-      {
-        "<leader>aa",
-        function()
-          return require("CopilotChat").toggle()
-        end,
-        desc = "Toggle (CopilotChat)",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>ax",
-        function()
-          return require("CopilotChat").reset()
-        end,
-        desc = "Clear (CopilotChat)",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>aq",
-        function()
-          local input = vim.fn.input("Quick Chat: ")
-          if input ~= "" then
-            require("CopilotChat").ask(input)
-          end
-        end,
-        desc = "Quick Chat (CopilotChat)",
-        mode = { "n", "v" },
-      },
-    },
-    config = function(_, opts)
-      local chat = require("CopilotChat")
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   branch = "main",
+  --   cmd = "CopilotChat",
+  --   opts = function()
+  --     local user = vim.env.USER or "User"
+  --     user = user:sub(1, 1):upper() .. user:sub(2)
+  --     return {
+  --       model = "gpt-4-0125-preview",
+  --       auto_insert_mode = true,
+  --       show_help = true,
+  --       question_header = "  " .. user .. " ",
+  --       answer_header = "  Copilot ",
+  --       window = {
+  --         width = 0.4,
+  --       },
+  --       selection = function(source)
+  --         local select = require("CopilotChat.select")
+  --         return select.visual(source) or select.buffer(source)
+  --       end,
+  --     }
+  --   end,
+  --   keys = {
+  --     { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
+  --     { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+  --     {
+  --       "<leader>aa",
+  --       function()
+  --         return require("CopilotChat").toggle()
+  --       end,
+  --       desc = "Toggle (CopilotChat)",
+  --       mode = { "n", "v" },
+  --     },
+  --     {
+  --       "<leader>ax",
+  --       function()
+  --         return require("CopilotChat").reset()
+  --       end,
+  --       desc = "Clear (CopilotChat)",
+  --       mode = { "n", "v" },
+  --     },
+  --     {
+  --       "<leader>aq",
+  --       function()
+  --         local input = vim.fn.input("Quick Chat: ")
+  --         if input ~= "" then
+  --           require("CopilotChat").ask(input)
+  --         end
+  --       end,
+  --       desc = "Quick Chat (CopilotChat)",
+  --       mode = { "n", "v" },
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     local chat = require("CopilotChat")
 
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-chat",
-        callback = function()
-          vim.opt_local.relativenumber = false
-          vim.opt_local.number = false
-        end,
-      })
+  --     vim.api.nvim_create_autocmd("BufEnter", {
+  --       pattern = "copilot-chat",
+  --       callback = function()
+  --         vim.opt_local.relativenumber = false
+  --         vim.opt_local.number = false
+  --       end,
+  --     })
 
-      chat.setup(opts)
-    end,
-  },
+  --     chat.setup(opts)
+  --   end,
+  -- },
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
   --   dependencies = {
@@ -182,10 +182,6 @@ require("lazy").setup({
     ---@type render.md.UserConfig
     opts = {},
   },
--- ,{
--- "karb94/neoscroll.nvim",
--- opts = {},
--- }
 {
     "tiagovla/tokyodark.nvim",
     opts = {
@@ -195,6 +191,45 @@ require("lazy").setup({
         require("tokyodark").setup(opts) -- calling setup is optional
         vim.cmd [[colorscheme tokyodark]]
     end
+},
+-- ,{
+-- "karb94/neoscroll.nvim",
+-- opts = {},
+-- }
+{
+  "yetone/avante.nvim",
+  event = "VeryLazy",
+  version = false, 
+  opts = {
+    provider = "claude",
+    auto_suggestions_provider = "claude",
+    providers = {
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o", 
+        extra_request_body = {
+          timeout = 30000, 
+          temperature = 0.75,
+          max_completion_tokens = 8192,
+          --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+        },
+      },
+    claude = {
+      endpoint = "https://api.anthropic.com",
+      model = "claude-3-5-sonnet-20241022",
+      extra_request_body = {
+        temperature = 0,
+        max_tokens = 4096,
+      },
+    },
+  },
+  },
+  build = "make",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+  },
 }
 })
 

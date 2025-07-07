@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="luisfemd"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="luisfemd"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,7 +103,8 @@ source $ZSH/oh-my-zsh.sh
 
 path+=('$HOME/Develop/Me/miajiloj')
 path+=('$ASDF_DATA_DIR/shims')
-export PATH
+# export PATH
+export PATH="$PATH:$HOME/.local/bin"
 export WMS="$HOME/Develop/Pulpo/wms-apps/"
 
 alias wms-apps="cd $WMS"
@@ -111,7 +112,7 @@ alias wms-backend="cd $WMS/wms-backend"
 alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-settings="cd $WMS/wms-settings"
-alias config="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
 export OPENAI_API_KEY=$(cat ~/.openai-token)
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"

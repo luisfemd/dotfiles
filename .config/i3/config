@@ -240,6 +240,7 @@ bindsym $mod+p exec --no-startup-id .local/bin/list-programs
 #         status_command i3status
 # }
 
+bindsym $mod+Tab exec i3-msg workspace next
 
 
 # executues the startup script for polybar and libinput-gestures

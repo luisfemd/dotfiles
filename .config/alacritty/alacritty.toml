@@ -15,3 +15,20 @@ size = 8
 
 # [shell]
 # program = "tmux"
+
+[window]
+dynamic_padding = false
+opacity = 1.0
+
+# [performance]
+# throttle_rendering = true
+# render_when_unfocused = false
+# lazy_frame_rendering = true
+
+# [rendering]
+# render_timer = false
+
+[scrolling]
+history = 10000
+multiplier = 3
+

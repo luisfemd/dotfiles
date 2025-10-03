@@ -123,5 +123,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(gh copilot alias -- zsh)"
 
-alias jenkins='java -jar /opt/jenkins-cli/jenkins-cli.jar -s http://ci.pulpo.co:8080 -auth $(cat ~/.jenkins-token)'
+alias jenkins='/usr/lib/jvm/java-25-openjdk/bin/java -jar /opt/jenkins-cli/jenkins-cli.jar -s http://ci.pulpo.co:8080 -auth $(cat ~/.jenkins-token)'
 
+
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools

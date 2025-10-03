@@ -33,6 +33,7 @@ gaps outer 0
 for_window [class="^.*"] border pixel 1
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Android Emulator - my_avd:5554"] floating enable
+for_window [title="Android Emulator - Pixel:5554"] floating enable
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart

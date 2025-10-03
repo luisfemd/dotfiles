@@ -25,20 +25,100 @@ require("lazy").setup({
       require("nvim-surround").setup({})
     end
   },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function () 
-      local configs = require("nvim-treesitter.configs")
+ {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  config = function () 
+    local configs = require("nvim-treesitter.configs")
 
-      configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "eex", "heex", "javascript", "html", "groovy", "python", "sql", "typescript" },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },  
-      })
+    configs.setup({
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "eex", "heex", "javascript", "html", "groovy", "python", "sql", "typescript" },
+      sync_install = false,
+      highlight = { 
+        enable = true,
+        -- Añadir protección contra archivos problemáticos
+        disable = function(lang, buf)
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            return true
+          end
+          
+          -- Verificar que el buffer y la ventana sean válidos
+          if not vim.api.nvim_buf_is_valid(buf) then
+            return true
+          end
+          
+          local win = vim.fn.bufwinid(buf)
+          if win == -1 or not vim.api.nvim_win_is_valid(win) then
+            return true
+          end
+          
+          return false
+        end,
+        -- Añadir callback de error personalizado
+        additional_vim_regex_highlighting = false,
+      },
+      indent = { 
+        enable = true,
+        disable = { "python" } -- Python tiene mejor indentación nativa
+      },
+      -- Añadir configuración de parsing incremental más conservadora
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gnn",
+          node_incremental = "grn",
+          scope_incremental = "grc",
+          node_decremental = "grm",
+        },
+      },
+    })
+    
+    -- Manejar errores específicos de Tree-sitter para Elixir
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {"elixir", "eex", "heex"},
+      callback = function(args)
+        local buf = args.buf
+        -- Verificar que el buffer sea válido antes de habilitar highlighting
+        vim.schedule(function()
+          if vim.api.nvim_buf_is_valid(buf) then
+            local win = vim.fn.bufwinid(buf)
+            if win ~= -1 and vim.api.nvim_win_is_valid(win) then
+              pcall(function()
+                vim.treesitter.start(buf)
+              end)
+            end
+          end
+        end)
+      end,
+    })
+    
+    -- Manejo global de errores de Tree-sitter
+    local original_notify = vim.notify
+    vim.notify = function(msg, level, opts)
+      -- Suprimir errores específicos de window id inválido
+      if type(msg) == "string" and msg:match("Invalid window id") then
+        return
+      end
+      original_notify(msg, level, opts)
     end
-  },
+  end
+},
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   build = ":TSUpdate",
+  --   config = function () 
+  --     local configs = require("nvim-treesitter.configs")
+
+  --     configs.setup({
+  --       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "eex", "heex", "javascript", "html", "groovy", "python", "sql", "typescript" },
+  --       sync_install = false,
+  --       highlight = { enable = true },
+  --       indent = { enable = true },  
+  --     })
+  --   end
+  -- },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()

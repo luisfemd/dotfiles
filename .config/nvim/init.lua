@@ -11,6 +11,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Configurar shell para usar zsh con aliases
+vim.opt.shell = '/bin/zsh'
+vim.opt.shellcmdflag = '-ic'
+
 require("core.keymaps")
 require("core.plugins")
 require("core.plugin_config")

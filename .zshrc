@@ -113,6 +113,7 @@ alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-settings="cd $WMS/wms-settings"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
+alias mynotes="cd ~/Documents/MyNotes/"
 export OPENAI_API_KEY=$(cat ~/.openai-token)
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"

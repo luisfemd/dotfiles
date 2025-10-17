@@ -114,18 +114,23 @@ alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-settings="cd $WMS/wms-settings"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
 alias mynotes="cd ~/Documents/MyNotes/"
+
+# Tokens
 export OPENAI_API_KEY=$(cat ~/.openai-token)
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
+
+# Elixir Alias
+alias mfmt="mix format "
+alias mtst="MIX_ENV=test mix unit_test"
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"
- 
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(gh copilot alias -- zsh)"
 
+# Jenkins
 alias jenkins='/usr/lib/jvm/java-25-openjdk/bin/java -jar /opt/jenkins-cli/jenkins-cli.jar -s http://ci.pulpo.co:8080 -auth $(cat ~/.jenkins-token)'
-
 
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT

@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Configurar shell para usar zsh con aliases
-vim.opt.shell = '/bin/zsh'
-vim.opt.shellcmdflag = '-ic'
+-- vim.opt.shell = '/bin/zsh'
+-- vim.opt.shellcmdflag = '-ic'
 
 require("core.keymaps")
 require("core.plugins")

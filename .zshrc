@@ -118,6 +118,8 @@ alias mynotes="cd ~/Documents/MyNotes/"
 # Tokens
 export OPENAI_API_KEY=$(cat ~/.openai-token)
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
+export COLOMBIAN_ID=$(cat ~/.mycolombianid)
+
 
 # Elixir Alias
 alias mfmt="mix format "

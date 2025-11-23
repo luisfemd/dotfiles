@@ -107,11 +107,11 @@ path+=('$ASDF_DATA_DIR/shims')
 export PATH="$PATH:$HOME/.local/bin"
 export WMS="$HOME/Develop/Pulpo/wms-apps/"
 
-alias wms-apps="cd $WMS"
-alias wms-backend="cd $WMS/wms-backend"
-alias wms-integrator="cd $WMS/wms-integrator"
-alias wms-frontend="cd $WMS/wms-frontend"
-alias wms-settings="cd $WMS/wms-settings"
+alias wmsapps="cd $WMS"
+alias wmsbackend="cd $WMS/wms-backend"
+alias wmsintegrator="cd $WMS/wms-integrator"
+alias wmsfrontend="cd $WMS/wms-frontend"
+alias wmssettings="cd $WMS/wms-settings"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
 alias mynotes="cd ~/Documents/MyNotes/"
 

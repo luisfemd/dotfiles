@@ -34,6 +34,7 @@ for_window [class="^.*"] border pixel 1
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Android Emulator - my_avd:5554"] floating enable
 for_window [title="Android Emulator - Pixel:5554"] floating enable
+for_window [title="Android Emulator - pulpo_wms:5554"] floating enable
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -230,6 +231,7 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
+# xclip -selection clipboard -target image/png -out > output.png
 ## Password Manager
 bindsym $mod+F8 exec --no-startup-id .local/bin/passmngr 
 
@@ -242,6 +244,7 @@ bindsym $mod+p exec --no-startup-id .local/bin/list-programs
 # }
 
 bindsym $mod+Tab exec i3-msg workspace next
+bindsym $mod+Shift+Tab exec i3-msg workspace prev
 
 
 # executues the startup script for polybar and libinput-gestures

@@ -29,3 +29,5 @@ vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set('n', 'SSA', ':wa<CR>:mksession! ~/.local/share/nvim/sessions/')
 vim.keymap.set('n', 'SO', ':wa<CR>:so ~/.local/share/nvim/sessions/')
 
+vim.keymap.set("n", "<leader>mf", ":MFT<CR>", { desc = "Mix Format file" })
+

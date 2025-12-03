@@ -124,7 +124,14 @@ export COLOMBIAN_ID=$(cat ~/.mycolombianid)
 # Elixir Alias
 alias mfmt="mix format "
 alias mtst="MIX_ENV=test mix unit_test"
+
 # alias nvimgit="nvim $(git status --porcelain | awk '{print $2}')"
+
+# Tmux aliases
+alias tl='tmux ls'
+alias ta='tmux attach-session -d -t'
+alias tn='tmux new-session -s'
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

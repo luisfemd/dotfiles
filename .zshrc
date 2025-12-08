@@ -111,3 +111,4 @@ alias wms-integrator="cd $WMS/wms-integrator"
 alias wms-frontend="cd $WMS/wms-frontend"
 alias wms-apps="cd $WMS"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
+alias ls=lsd

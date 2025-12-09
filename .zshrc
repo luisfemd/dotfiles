@@ -132,6 +132,9 @@ alias tl='tmux ls'
 alias ta='tmux attach-session -d -t'
 alias tn='tmux new-session -s'
 
+# lsd
+alias ls=lsd
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

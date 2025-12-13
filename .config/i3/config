@@ -223,9 +223,9 @@ mode "caps" {
 bindsym Caps_Lock mode "caps"
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).jpg"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$(date).jpg"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots/$(date).jpg"
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date '+%Y%m%d%H%M%S%N').jpg"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$(date '+%Y%m%d%H%M%S%N').jpg"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots/$(date '+%Y%m%d%H%M%S%N').jpg"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png

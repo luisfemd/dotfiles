@@ -114,11 +114,14 @@ alias wmsfrontend="cd $WMS/wms-frontend"
 alias wmssettings="cd $WMS/wms-settings"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/Develop/Me/dotfiles --work-tree=$HOME"
 alias mynotes="cd ~/Documents/MyNotes/"
+alias miajiloj="cd ~/Develop/Me/miajiloj/"
+alias api="~/Develop/Me/myapibash/api.sh"
 
 # Tokens
 export OPENAI_API_KEY=$(cat ~/.openai-token)
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic-token)
 export COLOMBIAN_ID=$(cat ~/.mycolombianid)
+export JIRA_API_TOKEN=$(cat ~/.jira_token)
 
 
 # Elixir Alias
@@ -139,7 +142,7 @@ alias ls=lsd
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(gh copilot alias -- zsh)"
+# eval "$(gh copilot alias -- zsh)"
 
 # Jenkins
 alias jenkins='/usr/lib/jvm/java-25-openjdk/bin/java -jar /opt/jenkins-cli/jenkins-cli.jar -s http://ci.pulpo.co:8080 -auth $(cat ~/.jenkins-token)'
@@ -150,3 +153,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+# API completion for myapibash
+source "/home/luisfemd/Develop/Me/myapibash/lib/api_completion.zsh"

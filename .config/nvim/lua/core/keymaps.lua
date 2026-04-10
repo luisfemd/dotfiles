@@ -31,7 +31,6 @@ vim.keymap.set('n', 'SO', ':wa<CR>:so ~/.local/share/nvim/sessions/')
 
 vim.keymap.set("n", "<leader>mf", ":MFT<CR>", { desc = "Mix Format file" })
 
-
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true})
 vim.keymap.set('n', '<leader>tn', ':Tnew<CR>', { desc = "Opern new terminal" })
 

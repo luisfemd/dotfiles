@@ -156,3 +156,10 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # API completion for myapibash
 source "/home/luisfemd/Develop/Me/myapibash/lib/api_completion.zsh"
+
+# bun completions
+[ -s "/home/luisfemd/.bun/_bun" ] && source "/home/luisfemd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
